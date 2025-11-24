@@ -1,44 +1,23 @@
 <template>
   <div class="custom-node transform-node">
+    <div class="header">TRANSFORM</div>
     <div class="label">{{ data.label }}</div>
-
-    <!-- Top input -->
-    <Handle
-      id="in"
-      type="target"
-      :position="Position.Top"
-      :connectable="true"
-    />
-
-    <!-- Bottom output -->
-    <Handle
-      id="out"
-      type="source"
-      :position="Position.Bottom"
-      :connectable="true"
-    />
+    
+    <Handle id="in" type="target" :position="Position.Top" :connectable="true" />
+    <Handle id="out" type="source" :position="Position.Bottom" :connectable="true" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { Handle, Position } from '@vue-flow/core'
-
-defineProps<{
-  id: string
-  data: { label: string }
-}>()
+defineProps<{ data: { label: string } }>()
 </script>
 
 <style scoped>
 .transform-node {
-  padding: 10px 14px;
-  background: #e8f5e9;
-  border-radius: 6px;
-  border: 1px solid #a5d6a7;
-  pointer-events: all; 
-  cursor: pointer;
+  padding: 8px 12px; background: #e8f5e9; border-radius: 6px;
+  border: 1px solid #a5d6a7; min-width: 120px; text-align: center;
 }
-.label {
-  font-weight: 600;
-}
+.header { font-size: 10px; color: #2e7d32; font-weight: bold; margin-bottom: 4px; }
+.label { font-weight: 600; font-size: 14px; }
 </style>
